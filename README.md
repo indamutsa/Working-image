@@ -34,7 +34,7 @@ However, it needs to use docker socket to build and push images to the docker hu
 - openjdk17
 - openssh
 
-We also have other tools such as:
+We also have other tools installed such as:
 
 - kubectl
 - helm

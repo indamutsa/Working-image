@@ -48,12 +48,34 @@ We also have other tools installed such as:
 
 You can use this image by running the following command:
 
+On linux:
+
 ```bash
 docker run -it --rm --net host --name working-container \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v ${PWD}:/work \
 -w /work indamutsa/working-image:1.0.0 zsh
 ```
+
+On macOS, remove --net host, since it disable -p flag:
+
+```bash
+docker run -it --rm --name working-container \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-p 8000:8000 \
+-v ${PWD}:/work \
+-w /work indamutsa/working-image:1.0.0 zsh
+```
+
+Now, when you run app inside the container, it will be available on your local machine on port 8000.
+
+```bash
+uvicorn main:app --host 0.0.0.0 --reload
+```
+
+![alt text](image/fastapi.png)
+
+In case of fastapi
 
 ## Benefits
 
